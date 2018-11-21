@@ -6,19 +6,21 @@ public class timeConverter {
 	public static void main(String[] args) {
 		
 		// input
-		String input = Console.readString("Enter a time in 24 hour notation: ");
+		String input;
+		do {
+			input = Console.readString("Enter a time in 24 hour notation (Hours, Minutes, Seconds): ");
+		} while (input.length() <= 7);
+//				|| ((input.charAt(1) != ':' || input.charAt(4) != ':') 
+//				|| (input.charAt(2) != ':' || input.charAt(5) != ':')));
 		
 		//creates a time object
 		Time t = new Time(input);
-//		Console.print(t.hours);
-//		Console.print(t.minutes);
-//		Console.print(t.seconds);
 		
 		//covers the integers to a date
 		String date = t.convertTime();
 		
 		//prints the new date
-		Console.print(input + " in 12 hour notation is: "+date);
+		Console.print(date);
 		
 		
 	}
